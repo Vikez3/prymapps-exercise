@@ -39,10 +39,12 @@ $(document).ready(function () {
   ];
   // movies Array
 
-  // filter array
+  // get unique genere
+  let filterArray = new Set(moviesData.map((movie) => movie.genre));
+  let filterArrayUnique = Array.from(filterArray);
+  // get unique genere
+  // rendering filter buttons
   function renderButtons() {
-    let filterArray = new Set(moviesData.map((movie) => movie.genre));
-    let filterArrayUnique = Array.from(filterArray);
     $(".filter-conainer").html("");
     let buttonsHTML = filterArrayUnique
       .map(
@@ -57,7 +59,7 @@ $(document).ready(function () {
   `);
   }
   renderButtons();
-  // filter array
+  // rendering filter buttons
 
   // render films
   function RenderFilms(moviesArr) {
